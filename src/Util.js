@@ -25,12 +25,12 @@
   Util.prototype.throttle = function(fn, interval){
     var isWaiting = false;
     var exec = function(event) {
-        if (isWaiting) return;
-        isWaiting = true;
-        setTimeout(function() {
-            isWaiting = false;
-            fn(event);
-        }, interval);
+      if (isWaiting) return;
+      isWaiting = true;
+      setTimeout(function() {
+        isWaiting = false;
+        fn(event);
+      }, interval);
     };
     return exec;
   };
@@ -60,7 +60,7 @@
   };
   
   Util.prototype.zeroPadding = function(num, len){
-      return (new Array(len).join("0") + num).slice(-len);
+    return (new Array(len).join("0") + num).slice(-len);
   };
   
   win.Util = Util;
