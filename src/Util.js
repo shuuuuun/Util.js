@@ -1,6 +1,4 @@
 (function(win, doc){
-  var ns = win.App = win.App || {};
-  
   var $win = $(win);
   
   function Util(){
@@ -16,8 +14,8 @@
   };
   
   Util.prototype.getWinSize = function(){
-      ns.winW = Math.max( $win.width(), (win.innerWidth || 0) );
-      ns.winH = Math.max( $win.height(), (win.innerHeight || 0) );
+    win.winW = Math.max( $win.width(), (win.innerWidth || 0) );
+    win.winH = Math.max( $win.height(), (win.innerHeight || 0) );
   };
   
   Util.prototype.getRandomInt = function(min, max){
@@ -65,6 +63,6 @@
       return (new Array(len).join("0") + num).slice(-len);
   };
   
-  ns.Util = Util;
+  win.Util = Util;
   
 })(this, document);
