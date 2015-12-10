@@ -63,6 +63,22 @@
     return (new Array(len).join("0") + num).slice(-len);
   };
   
+  Util.prototype.getQueryString = function(){
+    var result = {};
+    var search = win.location.search;
+    if (search.length > 1) {
+      var query = search.substring(1);
+      var parameters = query.split("&");
+      for(var i = 0; i < parameters.length; i++){
+        var element = parameters[i].split("=");
+        var paramName = decodeURIComponent(element[0]);
+        var paramValue = decodeURIComponent(element[1]);
+        result[paramName] = paramValue;
+      }
+    }
+    return result;
+  };
+  
   win.Util = Util;
   
 })(this, document);
