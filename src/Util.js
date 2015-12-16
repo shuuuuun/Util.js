@@ -55,8 +55,11 @@
       });
     })(0);
   };
+  
   Util.prototype.delay = function(time){ // asyncで使う用
-    return function(callback){ setTimeout(callback,time); };
+    return function(callback){
+      setTimeout(callback, time);
+    };
   };
   
   Util.prototype.sleep = function(time){ // Deferred
