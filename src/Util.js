@@ -2,6 +2,7 @@
   var $win = $(win);
   
   function Util(){
+    this.getUserAgent();
     this.getWinSize();
   }
   
@@ -90,6 +91,19 @@
       }
     }
     return result;
+  };
+  
+  Util.prototype.getUserAgent = function(){
+    this.ua = {};
+    this.ua.name = win.navigator.userAgent.toLowerCase();
+    this.ua.isSP = /ipod|iphone|ipad|android/i.test(this.ua.name);
+    this.ua.isPC = !this.ua.isSP;
+    this.ua.isIOS = /ipod|iphone|ipad/i.test(this.ua.name);
+    this.ua.isAndroid = /android/.test(this.ua.name);
+    this.ua.isIE8 = /msie 8/.test(this.ua.name);
+    this.ua.isIE9 = /msie 9/.test(this.ua.name);
+    if (this.ua.isSP) doc.body.className += " isSP";
+    if (this.ua.isPC) doc.body.className += " isPC";
   };
   
   win.Util = Util;
