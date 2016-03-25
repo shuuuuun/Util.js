@@ -100,6 +100,22 @@
         $('.onlysp').remove();
       }
     },
+    setupInternalLinks: function(){
+      $('a[href^="#"]').on('click', function(){
+        var scrTop = document.documentElement.scrollTop || document.body.scrollTop || $win.scrollTop();
+        var speed = 2;
+        var anchor = $(this).attr('href');
+        var target = (anchor === '#top') ? 0 : $(anchor).offset().top;
+        var distance = Math.abs(scrTop - target);
+        var time = distance / speed;
+        
+        $('html, body').animate({
+            scrollTop: target,
+        }, time, 'swing');
+        
+        return false;
+      });
+    },
   };
   
 })(this, document);
