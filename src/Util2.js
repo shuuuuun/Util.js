@@ -86,8 +86,15 @@
       Util.ua.isPC = !Util.ua.isSP;
       Util.ua.isIOS = /ipod|iphone|ipad/i.test(Util.ua.name);
       Util.ua.isAndroid = /android/.test(Util.ua.name);
+      Util.ua.isIE = /msie|trident/i.test(Util.ua.name);
       Util.ua.isIE8 = /msie 8/.test(Util.ua.name);
       Util.ua.isIE9 = /msie 9/.test(Util.ua.name);
+      Util.ua.isIE10 = /msie 10/.test(Util.ua.name);
+      Util.ua.isMac = /macintosh/.test(Util.ua.name);
+      Util.ua.isChrome = /chrome/.test(Util.ua.name);
+      Util.ua.isFirefox = /firefox/.test(Util.ua.name);
+      Util.ua.isSafari = /safari/.test(Util.ua.name);
+      Util.ua.isMacSafari = Util.ua.isSafari && Util.ua.isMac && !Util.ua.isChrome; // chromeのuaにもsafariの文字列がある
       if (Util.ua.isSP) doc.body.className += " isSP";
       if (Util.ua.isPC) doc.body.className += " isPC";
       return Util.ua;
