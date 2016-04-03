@@ -21,7 +21,7 @@ gulp.task('js', () => {
   // minifyしない
   gulp.src([GLOB_PATH, GLOB_UNBUILD])
     .pipe(plumber())
-    .pipe(babel())
+    // .pipe(babel())
     .pipe(gulp.dest(DEST_PATH));
 });
 
@@ -29,7 +29,7 @@ gulp.task('js-min', () => {
   // minifyする
   gulp.src([GLOB_PATH, GLOB_UNBUILD])
     .pipe(plumber())
-    .pipe(babel())
+    // .pipe(babel())
     .pipe(uglify({ preserveComments: 'some' }))
     .pipe(rename((path) => {
       path.basename += '.min';
