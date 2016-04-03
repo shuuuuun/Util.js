@@ -1,17 +1,17 @@
 (function(win, doc){
   
-  var $win = $(win);
+  var $win = $(window);
   
   // prefix: 
   window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame || function(callback){ var id = window.setTimeout(callback,1000/60); return id; };
   window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame || window.oCancelAnimationFrame || function(id){ window.clearTimeout(id); };
   
-  win.Util = {
+  window.Util = {
     TRANSITIONEND: "transitionend webkitTransitionEnd mozTransitionEnd msTransitionEnd oTransitionEnd",
     ANIMATIONEND: "animationend webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd",
     getWinSize: function(){
-      win.winW = Math.max( $win.width(), (win.innerWidth || 0) );
-      win.winH = Math.max( $win.height(), (win.innerHeight || 0) );
+      window.winW = Math.max( $win.width(), (window.innerWidth || 0) );
+      window.winH = Math.max( $win.height(), (window.innerHeight || 0) );
     },
     getRandomInt: function(min, max){
       return Math.floor( Math.random() * (max - min + 1) ) + min;
@@ -66,7 +66,7 @@
     },
     getQueryString: function(){
       var result = {};
-      var search = win.location.search;
+      var search = window.location.search;
       if (search.length > 1) {
         var query = search.substring(1);
         var parameters = query.split("&");
@@ -81,7 +81,7 @@
     },
     getUserAgent: function(){
       Util.ua = {};
-      Util.ua.name = win.navigator.userAgent.toLowerCase();
+      Util.ua.name = window.navigator.userAgent.toLowerCase();
       Util.ua.isSP = /ipod|iphone|ipad|android/i.test(Util.ua.name);
       Util.ua.isPC = !Util.ua.isSP;
       Util.ua.isIOS = /ipod|iphone|ipad/i.test(Util.ua.name);
