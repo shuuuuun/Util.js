@@ -123,6 +123,14 @@
         return false;
       });
     },
+    setupReloadOnPageShow: function() {
+      // iOSでのブラウザバック時のキャッシュ対策
+      window.addEventListener('pageshow', function(evt) {
+        if (evt.persisted) {
+          location.reload();
+        }
+      });
+    },
   };
   
 })(this, document);
