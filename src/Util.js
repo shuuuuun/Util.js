@@ -16,6 +16,13 @@
     getRandomInt: function(min, max){
       return Math.floor( Math.random() * (max - min + 1) ) + min;
     },
+    getfilledArray: function(val, length) {
+      return Array.apply(null, Array(length)).map(function() { return val; }); // => [val,val,...]
+    },
+    getSequenceArray: function(start, length, step) {
+      step = step || 1;
+      return Array.apply(null, Array(length)).map(function(_, i) { return start + i * step; });
+    },
     throttle: function(fn, interval){
       var isWaiting = false;
       var exec = function(event) {
